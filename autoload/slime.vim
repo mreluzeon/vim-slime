@@ -422,3 +422,20 @@ function! s:SlimeDispatch(name, ...)
   return call("s:" . target . a:name, a:000)
 endfunction
 
+function! slime#setScreenConfig(session, ...)
+  if !exists("b:slime_config")
+    let b:slime_config = {"sessionname": "", "windowname": "0"}
+  end
+  let windowname = get(a:, 1, "0")
+  let b:slime_config["sessionname"] = a:session
+  let b:slime_config["windowname"]  = windowname || "0"
+endfunction
+
+function! slime#setScreenConfig(session, ...)
+  if !exists("b:slime_config")
+    let b:slime_config = {"sessionname": "", "windowname": "0"}
+  end
+  let windowname = get(a:, 1, "0")
+  let b:slime_config["sessionname"] = a:session
+  let b:slime_config["windowname"]  = windowname || "0"
+endfunction
